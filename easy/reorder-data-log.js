@@ -159,4 +159,7 @@ console.assert(actualTwo === expectedTwo, `Expected ${actualTwo} to be: ${expect
 
 
 //ISSUE - After submitting the problem, it's clear that the key issue in my algorithm is a misunderstanding about the identifiers. It will not always be dig or let.
+<<<<<<< HEAD:easy/reorder-data-log.js
 // Will continue to need to look into this
+=======
+>>>>>>> 6621539c1b6dd7dc52384d2b70df11e6c92e957c:reorder-data-log.js
