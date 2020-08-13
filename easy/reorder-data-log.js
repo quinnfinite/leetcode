@@ -102,7 +102,6 @@
 // https://leetcode.com/problems/reorder-data-in-log-files/
 // `
 
-
 var reorderLogFiles = function(logs) {
   var letterLogs = [];
   var digLogs = [];
@@ -160,3 +159,4 @@ console.assert(actualTwo === expectedTwo, `Expected ${actualTwo} to be: ${expect
 
 
 //ISSUE - After submitting the problem, it's clear that the key issue in my algorithm is a misunderstanding about the identifiers. It will not always be dig or let.
+// Will continue to need to look into this
