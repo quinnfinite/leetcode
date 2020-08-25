@@ -64,6 +64,8 @@ var myAtoi = function(str) {
           break;
       }
     }
+    //check for mixed
+    if (str[startingIndex -2] === '-' || str[startingIndex - 2] === '+') return result; //which would be 0 at this time
     if (str[startingIndex - 1] === '-') neg = true;
     result = Number(str.slice(startingIndex, endingIndex + 1))
     if (result > maxNumber) result = maxNumber;
@@ -79,4 +81,9 @@ console.assert(myAtoi("-91283472332") === -2147483648, `This should equal -21474
 console.assert(myAtoi("words and 987") === 0, `This should equal 0, no conversion can be done. It equals ${myAtoi("words and 987")} instead`)
 console.assert(myAtoi("+1") === 1, `Expected: 1, Actual: ${myAtoi("+1")}`)
 console.assert(myAtoi("  0000000000012345678") === 12345678, `Expected: 12345678, Actual: ${myAtoi("  0000000000012345678")}`)
-//console.assert(myAtoi("+1") === 1, `Expected: 1, Acutal: ${myAtoi()}`)
+console.assert(myAtoi("+-2") === 0, `Expected: 0, Actual: ${myAtoi("+-2")}`)
+console.assert(myAtoi("   +0 123") === 0, `Expected: 0, Actual: ${myAtoi("   +0 123")}`)
+
+
+// console.assert(myAtoi("   +0 123") === 0, `Expected: 0, Actual: ${myAtoi("   +0 123")}`)
+
