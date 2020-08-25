@@ -55,14 +55,20 @@ var myAtoi = function(str) {
     var startingIndex, endingIndex;
     var neg = false;
     var maxNumber = 2**31;
-
+    debugger;
     for (var char = 0; char < str.length; char++) {
-      if (str[char] - 1 >= -1) {
+      if (str[char] - 1 >= -1 && str[char] !== ' ') {
             if(startingIndex === undefined) startingIndex = char;
             endingIndex = char;
-      } else if (str[char] !== ' ' && str[char] !== '-' && str[char] !== '+') {
+      } 
+      else if ( (startingIndex >=0 && (str[char] === ' ' || str[char] === '-' || str[char] === '+'))|| (str[char] !== ' ' && str[char] !== '-' && str[char] !== '+')) {
           break;
       }
+      else if (str[char] === '-' || str[char] === '+') {
+        var nextChar = str[char+1];
+        var options = [' ', '-', '+']
+        if (options.indexOf(nextChar) > -1) return result;
+      } 
     }
     //check for mixed
     if (str[startingIndex -2] === '-' || str[startingIndex - 2] === '+') return result; //which would be 0 at this time
@@ -80,7 +86,7 @@ var myAtoi = function(str) {
     return result ? result : 0;
   };
 
-//Tests
+// //Tests
 console.assert(myAtoi(" -42") === -42, `This should equal -42, but equals ${myAtoi("-42")}`)
 console.assert(myAtoi("42") === 42, `This should equal 42, but equals ${myAtoi("42")}`)
 console.assert(myAtoi("4193 with words") === 4193, `This should equal 4193, but equals ${myAtoi("-42")}`)
@@ -94,6 +100,13 @@ console.assert(myAtoi("2147483648") === 2147483647, `Expected: 2147483647 , Actu
 console.assert(myAtoi("-1") === -1, `Expected: -1, Actual: ${myAtoi("-1")}`)
 console.assert(myAtoi("-2147483647") === -2147483647, `Expected: -2147483647, Actual: ${myAtoi("-2147483647")}`)
 console.assert(myAtoi("91283472332") === 2147483647, `This should equal 2147483648, but equals ${myAtoi("91283472332")}`)
+console.assert(myAtoi("-   234") === 0, `Expected: 0, Actual: ${myAtoi("-   234")}`)
+console.assert(myAtoi("    -88827   5655  U") === -88827, `Expected: -88827, Actual: ${myAtoi("    -88827   5655  U")}`)
+console.assert(myAtoi("-13+8") === -13, `Expected: -13, Actual: ${myAtoi("-13+8")}`)
+
+//"-13+8"
+//console.log(myAtoi("     -88827"))
  
+// console.assert(myAtoi("   +0 123") === 0, `Expected: 0, Actual: ${myAtoi("   +0 123")}`)
 // console.assert(myAtoi("   +0 123") === 0, `Expected: 0, Actual: ${myAtoi("   +0 123")}`)
 
