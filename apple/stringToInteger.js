@@ -55,12 +55,12 @@ var myAtoi = function(str) {
     var startingIndex, endingIndex;
     var neg = false;
     var maxNumber = 2**31;
-  //   debugger;
+    
     for (var char = 0; char < str.length; char++) {
-      if (str[char] - 1 >= 0) {
+      if (str[char] - 1 >= -1) {
             if(startingIndex === undefined) startingIndex = char;
             endingIndex = char;
-      } else if (str[char] !== ' ' && str[char] !== '-') {
+      } else if (str[char] !== ' ' && str[char] !== '-' && str[char] !== '+') {
           break;
       }
     }
@@ -70,9 +70,13 @@ var myAtoi = function(str) {
     if (neg) result *= -1;
     return result
   };
+
 //Tests
 console.assert(myAtoi(" -42") === -42, `This should equal -42, but equals ${myAtoi("-42")}`)
 console.assert(myAtoi("42") === 42, `This should equal 42, but equals ${myAtoi("42")}`)
 console.assert(myAtoi("4193 with words") === 4193, `This should equal 4193, but equals ${myAtoi("-42")}`)
 console.assert(myAtoi("-91283472332") === -2147483648, `This should equal -2147483648, but equals ${myAtoi("-91283472332")}`)
 console.assert(myAtoi("words and 987") === 0, `This should equal 0, no conversion can be done. It equals ${myAtoi("words and 987")} instead`)
+console.assert(myAtoi("+1") === 1, `Expected: 1, Actual: ${myAtoi("+1")}`)
+console.assert(myAtoi("  0000000000012345678") === 12345678, `Expected: 12345678, Actual: ${myAtoi("  0000000000012345678")}`)
+//console.assert(myAtoi("+1") === 1, `Expected: 1, Acutal: ${myAtoi()}`)
