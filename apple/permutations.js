@@ -1,6 +1,6 @@
 /*
 OICE:
-
+https://leetcode.com/submissions/detail/389226085/?from=/explore/interview/card/apple/509/recursion/3126/
 O: Array of arrays
 I: Array of distinct integers
 C:
@@ -17,7 +17,6 @@ Diagram
 [1,2,3], [1,3,2]
 
 Pseudo
-if input array is empty or has one item, return input array
 results array
 
 recursive function - arr
