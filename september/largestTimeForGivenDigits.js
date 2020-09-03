@@ -78,11 +78,11 @@ var largestTimeFromDigits = function(A) {
       counter++;
       continue
     }
-    var largestPossible = null;
+    var largestPossible = -1;
     var index;
     for (var i = 0; i < A.length; i++) {
       if (time.length === 0) {
-        if(A[i] < 2 && A[i] > largestPossible) {
+        if(A[i] <= 2 && A[i] > largestPossible) {
           largestPossible = A[i];
           index = i;
         }
@@ -115,13 +115,12 @@ var largestTimeFromDigits = function(A) {
       }
     }
 
-    if (largestPossible !== null) {
+    if (largestPossible > -1) {
       time += largestPossible;
       A.splice(index, 1)
     }
     counter++;
   }
-  //return time;
   return time.length === 5 ? time : ""
 };
 
