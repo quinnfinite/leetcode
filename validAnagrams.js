@@ -12,5 +12,21 @@ var isAnagram = function(s, t) {
   return true;
 };
 
+//V2
+// var isAnagram = function(s, t) {
+//   if (s.length !== t.length) return false;
+//   var charCount = {};
+//   for (var i = 0; i < s.length; i++) {
+//       charCount[s[i]] ? charCount[s[i]]++ : charCount[s[i]] = 1
+//       charCount[t[i]] ? charCount[t[i]]-- : charCount[t[i]] = -1
+//   }
+//   for (var char in charCount) {
+//       if(charCount[char] !== 0) return false;
+//   }
+//   return true;
+// };
+
+
+
 //https://leetcode.com/problems/valid-anagram/solution/
 // console.log(isAnagram("car","rac"))
