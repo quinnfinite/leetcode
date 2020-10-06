@@ -55,7 +55,7 @@ Pseudo
 
 var reverse = function(num) {
   var neg = num < 0 ? true : false;
-  if (neg) num = num -2 * num
+  if (neg) num = num -2 * num;
   var digits = [];
   while (num !== 0) {
     var remainder = num % 10;
