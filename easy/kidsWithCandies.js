@@ -17,3 +17,17 @@ var kidsWithCandies = function(candies, extraCandies) {
   })
   return results;
 };
+
+
+//Solution 2
+var kidsWithCandies = function(candies, extraCandies) {
+  var mostCandies = 0;
+  for (var i = 0; i < candies.length; i++) {
+      if(candies[i] > mostCandies) mostCandies = candies[i];
+  }
+  var results = [];
+  for (var x = 0 ; x < candies.length; x++) {
+      candies[x] + extraCandies >= mostCandies ? results.push(true) : results.push(false)
+  }
+  return results;
+};
