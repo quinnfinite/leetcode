@@ -31,3 +31,11 @@ var kidsWithCandies = function(candies, extraCandies) {
   }
   return results;
 };
+
+//Solution 3
+var kidsWithCandies = function(candies, extraCandies) {
+  var max = Math.max(...candies);
+  return candies.map((candy) => {
+      return candy + extraCandies >= max;
+  })
+};
