@@ -35,6 +35,22 @@ var numIdenticalPairs = function(nums) {
 };
 
 
+//#4
+var numIdenticalPairs = function(nums) {
+  var numberCount = {};
+  var count = 0;
+  for (var num of nums) {
+      if(numberCount[num]) {
+          count += numberCount[num];
+          numberCount[num]++
+      } else {
+          numberCount[num] = 1;
+      }
+  }
+  return count
+};
+
+
 //options
 //use two for loops O(n^2)
 //use reduce (w/a for loop inside) O(n^2)
