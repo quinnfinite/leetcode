@@ -8,10 +8,14 @@ var sum = (account) => {
 
 
 var maximumWealth = function(accounts) {
+
   let richest = 0;
+
   accounts.forEach((account) => {
       const acctSum = sum(account)
       if(acctSum > richest) richest = acctSum
   })
+
   return richest
+
 };
